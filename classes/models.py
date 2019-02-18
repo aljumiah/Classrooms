@@ -15,6 +15,18 @@ class Classroom(models.Model):
 class Students(models.Model):
 	name = models.CharField(max_length=120)
 	date_of_birth = models.DateField()
-	gender = models.CharField(max_length=120)
+
+	gender_choices =( 
+		('NONE','Choose one'),
+		('MALE','Male'),
+		('FEMALE','Female') ,
+		)
+
+	gender = models.CharField(
+        max_length=6,
+        choices= gender_choices,
+		default= 'NONE',
+    )
+
 	exam_grade = models.DecimalField(max_digits=6, decimal_places=3)
 	classroom = models.ForeignKey(Classroom, default=1, on_delete=models.CASCADE)

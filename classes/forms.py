@@ -27,3 +27,7 @@ class AddStudent(forms.ModelForm):
             model = Students
             exclude = ['classroom']
             
+            
+            widgets={
+                    'date_of_birth': forms.DateInput(attrs={'type':'date'})
+                    }
