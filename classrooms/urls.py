@@ -9,10 +9,22 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('classrooms/', views.classroom_list, name='classroom-list'),
     path('classrooms/<int:classroom_id>/', views.classroom_detail, name='classroom-detail'),
+    
+    
+    
+    path('login', views.user_login, name='login'),
+    path('register', views.user_register, name='register'),
+    path('noaccess', views.no_access, name='no-access'),
+    path('logout', views.logout_view, name='logout'),
 
     path('classrooms/create', views.classroom_create, name='classroom-create'),
     path('classrooms/<int:classroom_id>/update/', views.classroom_update, name='classroom-update'),
     path('classrooms/<int:classroom_id>/delete/', views.classroom_delete, name='classroom-delete'),
+   
+   
+    path('classrooms/<int:classroom_id>/student/add/',views.add_student ,name='create-student'),
+    path('classrooms/<int:classroom_id>/<int:student_id>/update/', views.student_update, name='student-update'),
+    path('classrooms/<int:classroom_id>/<int:student_id>/delete/', views.student_delete, name='student-delete'),
 ]
 
 if settings.DEBUG:
